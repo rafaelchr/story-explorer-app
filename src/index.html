@@ -3,28 +3,87 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
     <title>Story Explorer - Share Your Adventures</title>
-
-    <link rel="shortcut icon" href="/favicon.png" /> 
-    <link rel="manifest" href="/manifest.json" /> 
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
     <style>
-      @view-transition { navigation: auto; }
-      ::view-transition-old(root),
-      ::view-transition-new(root) { animation-duration: 0.3s; }
-      ::view-transition-old(root) { animation-name: slide-out-left; }
-      ::view-transition-new(root) { animation-name: slide-in-right; }
-      @keyframes slide-out-left { to { transform: translateX(-100%); } }
-      @keyframes slide-in-right { from { transform: translateX(100%); } }
-    </style>
+      @view-transition {
+        navigation: auto;
+      }
 
-    </head>
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0.3s;
+      }
+
+      ::view-transition-old(root) {
+        animation-name: slide-out-left;
+      }
+
+      ::view-transition-new(root) {
+        animation-name: slide-in-right;
+      }
+
+      @keyframes slide-out-left {
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      @keyframes slide-in-right {
+        from {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+    <script type="module" src="/scripts/index.js"></script>
+  </head>
   <body>
-    <header role="banner">...</header>
+    <header role="banner">
+      <div class="main-header container">
+        <a id="skip-to-content" href="#main-section" class="skip-content"
+          >Skip to main content</a
+        >
+        <a class="brand-name" href="#/" aria-label="Story Explorer Home">
+          📖 Story Explorer
+        </a>
+
+        <nav
+          id="navigation-drawer"
+          class="navigation-drawer"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#/">🏠 Home</a></li>
+            <li><a href="#/add-story">➕ Add Story</a></li>
+            <li><a href="#/logout">🚪 Logout</a></li>
+          </ul>
+        </nav>
+
+        <button
+          id="drawer-button"
+          class="drawer-button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
     <main id="main-content" role="main"></main>
-    <footer role="contentinfo">...</footer>
+
+    <footer role="contentinfo">
+      <div class="container">
+        <p>&copy; 2024 Story Explorer</p>
+      </div>
+    </footer>
   </body>
 </html>
